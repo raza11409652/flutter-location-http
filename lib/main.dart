@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:location_service/DataModel/UserLocation.dart';
 import 'package:location_service/pages/apod.dart';
+import 'package:location_service/pages/dictionary.dart';
 import 'package:location_service/pages/list.dart';
+import 'package:location_service/pages/user_list.dart';
 // import 'package:location_service/utils/alter.dart';
 import 'package:provider/provider.dart';
 import 'Services/location_services.dart';
@@ -29,7 +31,6 @@ class HomeView extends StatelessWidget {
    
     return Scaffold(
       body: Column(
-        
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
@@ -51,6 +52,22 @@ class HomeView extends StatelessWidget {
             textColor: Colors.blueAccent,
             child: Text("APOD-Astronomy Picture of the Day"),
           ),
+         ) , 
+         RaisedButton(onPressed: (){
+           Navigator.of(context).push(
+               MaterialPageRoute(builder: (BuildContext ctx)=>UserList())
+             );
+         } , 
+         child: Text("User list"),
+         ) , 
+         MaterialButton(onPressed: (){
+           Navigator.of(context).push(
+               MaterialPageRoute(builder: (BuildContext ctx)=>Dictionary())
+             );
+         } , 
+         textColor: Colors.white,
+          child: Text("Dictionary"),
+          color: Colors.deepPurple,
          )
         ],
       ),
